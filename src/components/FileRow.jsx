@@ -1,7 +1,6 @@
 import React from "react";
-import { fileRowStyle, grey } from "./core/styles";
-import getSizeUnit from "./core/getSizeUnit";
-import { blue } from "./core/styles";
+import { fileRowStyle, grey, blue } from "../styles/styles";
+import getSizeUnit from "../core/getSizeUnit";
 
 const progressbarStyle = {
   width: "100%",
@@ -21,7 +20,7 @@ const leftStyle = (progress) => ({
 });
 
 const ProgressBar = ({ status, progress }) => {
-  if (status === "uploading") {
+  if (["pending", "uploading"].includes(status)) {
     return (
       <div style={progressbarStyle}>
         <div style={doneStyle(progress)}></div>
@@ -34,6 +33,7 @@ const ProgressBar = ({ status, progress }) => {
 };
 
 const FileRow = ({ name, size, status, progress }) => {
+  console.log(status, progress);
   return (
     <div style={fileRowStyle(status)}>
       {name} {`(${getSizeUnit(size).size} ${getSizeUnit(size).short})`}
