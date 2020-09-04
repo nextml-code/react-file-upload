@@ -1,7 +1,11 @@
 const spacing = "20px";
 const borderRadius = "3px";
-export const blue = (opacity = 1) => `rgba(81, 173, 237, ${opacity})`;
-export const grey = (opacity = 1) => `rgba(83, 98, 112, ${opacity})`;
+
+const rgba = (r, g, b) => (opacity = 1) => `rgba(${r}, ${g}, ${b}, ${opacity})`;
+export const blue = rgba(81, 173, 237);
+export const grey = rgba(83, 98, 112);
+export const red = rgba(237, 81, 83);
+export const green = rgba(35, 206, 107);
 
 /**
  * Style for the form both when
@@ -64,6 +68,9 @@ export const fileRowStyle = (status) => ({
       }
       case "pending": {
         return { backgroundColor: grey(0.05), color: grey(0.4) };
+      }
+      case "fail": {
+        return { backgroundColor: red(0.05), color: grey() };
       }
       default: {
         return { backgroundColor: "#ffffff" };

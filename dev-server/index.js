@@ -14,9 +14,17 @@ app.get("/", (req, res) => {
   res.send("hello");
 });
 
-app.post("/", multer({ dest: "uploads/" }).single("file"), (req, res) => {
-  res.status(200).send({ message: "done" });
-});
+app.post(
+  "/:delay/:status",
+  multer({ dest: "uploads/" }).single("file"),
+  (req, res) => {
+    const { delay, status } = req.params;
+
+    setTimeout(() => {
+      res.status(status).send({ message: "done" });
+    }, delay);
+  },
+);
 
 app.listen(9000, function () {
   console.log("Upload files");
