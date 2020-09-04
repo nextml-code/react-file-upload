@@ -4,7 +4,7 @@ import { map } from "../core/functional";
 import objectMatchFilter from "../core/objectMatch";
 import { triggerOnEvent } from "../core/events";
 
-const FileList = ({ files, fileStatusArray, onClick }) => {
+const FileList = ({ files, fileStatusArray, onClick, dispatch }) => {
   const renderFileRow = (file) => {
     const [{ progress, status }] = fileStatusArray.filter(
       objectMatchFilter("id", file.id),
@@ -18,6 +18,8 @@ const FileList = ({ files, fileStatusArray, onClick }) => {
         key={file.id}
         size={file.size}
         name={file.name}
+        id={file.id}
+        dispatch={dispatch}
       />
     );
   };
