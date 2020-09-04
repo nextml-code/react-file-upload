@@ -1,3 +1,5 @@
+import { PENDING, UPLOADING, FAIL } from "../core/constants";
+
 const spacing = "20px";
 const borderRadius = "3px";
 
@@ -63,13 +65,13 @@ export const fileRowStyle = (status) => ({
   flexDirection: "column",
   ...((status) => {
     switch (status) {
-      case "uploading": {
+      case UPLOADING: {
         return { backgroundColor: blue(0.1) };
       }
-      case "pending": {
+      case PENDING: {
         return { backgroundColor: grey(0.05), color: grey(0.4) };
       }
-      case "fail": {
+      case FAIL: {
         return { backgroundColor: red(0.05), color: grey() };
       }
       default: {

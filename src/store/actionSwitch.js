@@ -7,6 +7,7 @@ import {
 } from "./actionTypes";
 import prepareUpdateFileStatus from "./prepareUpdateFileStatus";
 import { map } from "../core/functional";
+import { PENDING, NEXT } from "../core/constants";
 
 const actionSwitch = (state, action) => {
   const updateFileStatus = prepareUpdateFileStatus(state.fileStatusArray);
@@ -33,7 +34,7 @@ const actionSwitch = (state, action) => {
           ...state.fileStatusArray,
           ...map(action.payload, (file) => ({
             id: file.id,
-            status: "pending",
+            status: PENDING,
             progress: 0,
           })),
         ],
@@ -46,8 +47,8 @@ const actionSwitch = (state, action) => {
         ...state,
         fileStatusArray: updateFileStatus({
           // Set the first pending file to the next file to be uploaded
-          ...state.fileStatusArray.filter((f) => f.status === "pending")[0],
-          status: "next",
+          ...state.fileStatusArray.filter((f) => f.status === PENDING)[0],
+          status: NEXT,
         }),
       };
     }

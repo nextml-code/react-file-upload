@@ -4,11 +4,12 @@ import { useEffect } from "react";
 import { SET_FILE_STATUS } from "../store/actionTypes";
 import { divide } from "../core/functional";
 import getFilesWithStatus from "../core/getFilesWithStatus";
+import { UPLOADING, NEXT, FAIL, DONE } from "../core/constants";
 
 // Start upload all files with the status 'next'
 const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
   useEffect(() => {
-    const [nextFile] = getFilesWithStatus(files, fileStatusArray, "next");
+    const [nextFile] = getFilesWithStatus(files, fileStatusArray, NEXT);
 
     const progressHandler = (fileId) => (event) => {
       dispatch({
@@ -16,7 +17,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
         payload: {
           id: fileId,
           progress: divide(event.loaded, event.total) * 100,
-          status: "uploading",
+          status: UPLOADING,
         },
       });
     };
@@ -27,7 +28,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
         payload: {
           id: fileId,
           progress: 100,
-          status: "done",
+          status: DONE,
         },
       });
     };
@@ -37,7 +38,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
         type: SET_FILE_STATUS,
         payload: {
           id: fileId,
-          status: "fail",
+          status: FAIL,
         },
       });
     };
@@ -48,7 +49,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
         payload: {
           id: nextFile.id,
           progress: 0,
-          status: "uploading",
+          status: UPLOADING,
         },
       });
 
