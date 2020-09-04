@@ -32,6 +32,16 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
       });
     };
 
+    const errorHandler = (fileId) => (error) => {
+      dispatch({
+        type: SET_FILE_STATUS,
+        payload: {
+          id: fileId,
+          status: "fail",
+        },
+      });
+    };
+
     if (nextFile !== undefined) {
       dispatch({
         type: SET_FILE_STATUS,
@@ -42,10 +52,9 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
         },
       });
 
-      upload(
-        url,
-        progressHandler(nextFile.id),
-      )(nextFile).then(responseHandler(nextFile.id));
+      upload(url, progressHandler(nextFile.id))(nextFile)
+        .then(responseHandler(nextFile.id))
+        .catch(errorHandler(nextFile.id));
     }
   }, [fileStatusArray]);
 };

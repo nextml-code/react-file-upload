@@ -2,6 +2,7 @@ import React from "react";
 import FileRow from "./FileRow";
 import { map } from "../core/functional";
 import objectMatchFilter from "../core/objectMatch";
+import { triggerOnEvent } from "../core/events";
 
 const FileList = ({ files, fileStatusArray, onClick }) => {
   const renderFileRow = (file) => {
@@ -13,7 +14,7 @@ const FileList = ({ files, fileStatusArray, onClick }) => {
       <FileRow
         progress={progress}
         status={status}
-        onClick={onClick}
+        onClick={triggerOnEvent(onClick, file.id)}
         key={file.id}
         size={file.size}
         name={file.name}

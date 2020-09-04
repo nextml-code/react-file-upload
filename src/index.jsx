@@ -11,9 +11,10 @@ const initialState = {
   files: [],
   fileStatusArray: [],
   requestBatchSize: 2,
+  fileResponseData: [],
 };
 
-const FileUpload = ({ url }) => {
+const FileUpload = ({ url, callback }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   useFileUploadBatchControl(state, dispatch);
   useFileUpload(state, dispatch, url);
@@ -21,7 +22,7 @@ const FileUpload = ({ url }) => {
   return (
     <div style={wrapperStyle}>
       <FileUploadForm state={state} dispatch={dispatch} />
-      <FileList {...state} onClick={() => {}} />
+      <FileList {...state} onClick={callback} />
     </div>
   );
 };
