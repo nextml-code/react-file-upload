@@ -38,6 +38,7 @@ const draggingStyle = {
 export const wrapperStyle = {
   border: `1px solid ${blue()}`,
   borderRadius,
+  backgroundColor: "#ffffff",
 };
 
 export const buttonStyle = {

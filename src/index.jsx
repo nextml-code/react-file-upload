@@ -10,19 +10,21 @@ import FileUploadForm from "./components/FileUploadForm";
 const initialState = {
   files: [],
   fileStatusArray: [],
-  requestBatchSize: 2,
   fileResponseData: [],
 };
 
-const FileUpload = ({ url, callback }) => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+const FileUpload = ({ url, callback, requestBatchSize = 1 }) => {
+  const [state, dispatch] = useReducer(reducer, {
+    ...initialState,
+    requestBatchSize,
+  });
   useFileUploadBatchControl(state, dispatch);
-  useFileUpload(state, dispatch, url);
+  useFileUpload(state, dispatch, url, callback);
 
   return (
     <div style={wrapperStyle}>
       <FileUploadForm state={state} dispatch={dispatch} />
-      <FileList {...state} onClick={callback} />
+      <FileList {...state} onClick={callback} dispatch={dispatch} />
     </div>
   );
 };

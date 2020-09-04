@@ -7,7 +7,7 @@ import getFilesWithStatus from "../core/getFilesWithStatus";
 import { UPLOADING, NEXT, FAIL, DONE } from "../core/constants";
 
 // Start upload all files with the status 'next'
-const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
+const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
   useEffect(() => {
     const [nextFile] = getFilesWithStatus(files, fileStatusArray, NEXT);
 
@@ -31,6 +31,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
           status: DONE,
         },
       });
+      callback(response);
     };
 
     const errorHandler = (fileId) => (error) => {
@@ -41,6 +42,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url) => {
           status: FAIL,
         },
       });
+      callback(error);
     };
 
     if (nextFile !== undefined) {
