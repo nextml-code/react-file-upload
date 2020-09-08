@@ -1,4 +1,4 @@
-const { default: objectMatchFilter } = require("./objectMatch");
+import objectMatchFilter from "./objectMatch";
 
 const getFilesWithStatus = (files, fileStatusArray, status) => {
   const fileIds = fileStatusArray
