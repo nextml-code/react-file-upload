@@ -1,6 +1,5 @@
 import React from "react";
 import { FAIL, PENDING } from "../core/constants";
-import { blue } from "../styles/styles";
 import { SET_FILE_STATUS } from "../store/actionTypes";
 
 const retry = (dispatch, fileId) => (_) => {
@@ -14,7 +13,7 @@ const retry = (dispatch, fileId) => (_) => {
 };
 
 const buttonStyle = {
-  color: blue(),
+  color: "var(--aiwizo-application-blue)",
   cursor: "pointer",
   textDecoration: "underline",
   marginLeft: "7px",
