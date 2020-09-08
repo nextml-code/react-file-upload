@@ -1,6 +1,5 @@
 import React from "react";
 import { UPLOADING, DONE, FAIL } from "../core/constants";
-import { blue, green, red } from "../styles/styles";
 import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
 import { faCheck, faSyncAlt } from "@fortawesome/pro-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,20 +9,30 @@ const iconSwitch = (status) => {
     case UPLOADING: {
       return (
         <FontAwesomeIcon
-          className="spin"
           icon={faSyncAlt}
-          style={{ color: blue() }}
+          style={{
+            color: "var(--aiwizo-application-blue)",
+            animation: "rotate 1s ease-in-out infinite",
+          }}
         />
       );
     }
 
     case DONE: {
-      return <FontAwesomeIcon icon={faCheck} style={{ color: green() }} />;
+      return (
+        <FontAwesomeIcon
+          icon={faCheck}
+          style={{ color: "var(--aiwizo-application-green)" }}
+        />
+      );
     }
 
     case FAIL: {
       return (
-        <FontAwesomeIcon icon={faExclamationCircle} style={{ color: red() }} />
+        <FontAwesomeIcon
+          icon={faExclamationCircle}
+          style={{ color: "var(--aiwizo-application-red)" }}
+        />
       );
     }
 

@@ -3,12 +3,6 @@ import { PENDING, UPLOADING, FAIL } from "../core/constants";
 const spacing = "20px";
 const borderRadius = "3px";
 
-const rgba = (r, g, b) => (opacity = 1) => `rgba(${r}, ${g}, ${b}, ${opacity})`;
-export const blue = rgba(81, 173, 237);
-export const grey = rgba(83, 98, 112);
-export const red = rgba(237, 81, 83);
-export const green = rgba(35, 206, 107);
-
 /**
  * Style for the form both when
  * dragging and not dragging
@@ -16,8 +10,8 @@ export const green = rgba(35, 206, 107);
 const commonStyle = {
   display: "flex",
   flexDirection: "column",
-  fontFamily: '"Open Sans", sans-serif',
-  backgroundColor: blue(0.1),
+  fontFamily: "var(--aiwizo-application-default-font)",
+  backgroundColor: "var(--aiwizo-application-light-background-blue)",
   alignItems: "center",
   fontWeight: 900,
   fontSize: "18px",
@@ -28,7 +22,7 @@ const commonStyle = {
  * Style for the form when dragging
  */
 const draggingStyle = {
-  backgroundColor: blue(0.8),
+  backgroundColor: "var(--aiwizo-application-blue)",
   color: "#ffffff",
 };
 
@@ -36,7 +30,7 @@ const draggingStyle = {
  *
  */
 export const wrapperStyle = {
-  border: `1px solid ${blue()}`,
+  border: "1px solid var(--aiwizo-application-primary-border-blue)",
   borderRadius,
   backgroundColor: "#ffffff",
 };
@@ -60,20 +54,28 @@ export const labelStyle = {
 export const fileRowStyle = (status) => ({
   padding: "10px 20px",
   fontFamily: '"Open Sans", sans-serif',
-  borderTop: `1px solid ${blue(0.2)}`,
+  borderTop: "1px solid var(--aiwizo-application-secondary-border-blue)",
   fontSize: "14px",
   display: "flex",
   flexDirection: "column",
   ...((status) => {
     switch (status) {
       case UPLOADING: {
-        return { backgroundColor: blue(0.1) };
+        return {
+          backgroundColor: "var(--aiwizo-application-light-background-blue)",
+        };
       }
       case PENDING: {
-        return { backgroundColor: grey(0.05), color: grey(0.4) };
+        return {
+          backgroundColor: "var(--aiwizo-application-light-background-grey)",
+          color: "var(--aiwizo-application-faded-text-grey)",
+        };
       }
       case FAIL: {
-        return { backgroundColor: red(0.05), color: grey() };
+        return {
+          backgroundColor: "var(--aiwizo-application-light-background-red)",
+          color: "var(--aiwizo-application-grey)",
+        };
       }
       default: {
         return { backgroundColor: "#ffffff" };

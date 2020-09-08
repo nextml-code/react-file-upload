@@ -1,5 +1,5 @@
 import React from "react";
-import { fileRowStyle, grey } from "../styles/styles";
+import { fileRowStyle } from "../styles/styles";
 import getSizeUnit from "../core/getSizeUnit";
 import { UPLOADING, FAIL } from "../core/constants";
 import ProgressBar from "./ProgressBar";
@@ -30,7 +30,7 @@ const FileRow = ({ name, size, status, progress, dispatch, id }) => (
           marginLeft: "7px",
           fontWeight: "bold",
           fontSize: "0.6rem",
-          color: grey(),
+          color: "var(--aiwizo-application-grey)",
         }}
       >{`${getSizeUnit(size).size} ${getSizeUnit(size).short}`}</span>
 

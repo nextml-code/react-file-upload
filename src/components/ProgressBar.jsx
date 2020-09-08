@@ -1,6 +1,5 @@
 import React from "react";
 import { PENDING, UPLOADING } from "../core/constants";
-import { grey, blue } from "../styles/styles";
 
 const progressbarStyle = {
   width: "100%",
@@ -11,12 +10,12 @@ const progressbarStyle = {
 };
 const doneStyle = (progress) => ({
   width: `${progress}%`,
-  backgroundColor: blue(),
+  backgroundColor: "var(--aiwizo-application-blue)",
 });
 
 const leftStyle = (progress) => ({
   width: `${100 - progress}%`,
-  backgroundColor: grey(),
+  backgroundColor: "var(--aiwizo-application-grey)",
 });
 
 const ProgressBar = ({ status, progress }) => {
