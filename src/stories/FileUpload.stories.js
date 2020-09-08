@@ -11,7 +11,7 @@ const Template = (args) => <FileUpload {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  url: "http://localhost:9000?delay=1000&status=200",
+  url: "http://localhost:9000/random",
   callback: (fileUploadResponse) => {
     console.log(fileUploadResponse);
   },
