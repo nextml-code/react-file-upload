@@ -15,7 +15,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci
+      - name: Install Dependencies
+        run: |
+          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
+          npm ci
+      - run: npm run build --if-present
       - run: npm test
 
   publish-gpr:
@@ -27,7 +31,11 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
+      - name: Install Dependencies
+        run: |
+          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
+          npm ci
+      - run: npm run build --if-present
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
