@@ -29,3 +29,11 @@ import FileUpload from "@aiwizo/react-file-upload";
   requestBatchSize={1}
 />
 ```
+
+## Notes
+
+- Styling depends on [application-styles](https://github.com/Aiwizo/application-styles) style sheets.
+
+## Contribution
+
+Please let us know if you have any issues. Put an issue here on github and we'll do our best to solve it.
