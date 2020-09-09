@@ -3,6 +3,7 @@
 
 # Secret stuff
 .env
+.npmrc
 
 # Node package
 node_modules

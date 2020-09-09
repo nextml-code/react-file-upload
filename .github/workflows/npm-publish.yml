@@ -32,9 +32,7 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - name: Install Dependencies
-        run: |
-          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
-          npm ci
+        run: npm ci
       - run: npm run build
       - run: npm publish
         env:
