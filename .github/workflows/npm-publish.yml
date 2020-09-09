@@ -19,7 +19,7 @@ jobs:
         run: |
           npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
           npm ci
-      - run: npm run build --if-present
+      - run: npm run build
       - run: npm test
 
   publish-gpr:
@@ -35,7 +35,7 @@ jobs:
         run: |
           npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
           npm ci
-      - run: npm run build --if-present
+      - run: npm run build
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
