@@ -1,7 +1,10 @@
 import React from "react";
 import { UPLOADING, DONE, FAIL } from "../core/constants";
-import { faExclamationCircle } from "@fortawesome/pro-solid-svg-icons";
-import { faCheck, faSyncAlt } from "@fortawesome/pro-regular-svg-icons";
+import {
+  faExclamationCircle,
+  faCheck,
+  faSyncAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const iconSwitch = (status) => {

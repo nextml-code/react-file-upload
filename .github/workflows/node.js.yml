@@ -23,9 +23,6 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Install Dependencies
-        run: |
-          npm config set '//npm.fontawesome.com/:_authToken' "${{ secrets.FONT_AWESOME_TOKEN }}"
-          npm ci
+      - run: npm ci
       - run: npm run build
       - run: npm test
