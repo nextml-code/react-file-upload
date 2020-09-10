@@ -32,9 +32,32 @@ import FileUpload from "@aiwizo/react-file-upload";
 />
 ```
 
-## Notes
+Make sure that the peer dependencies in `package.json` are installed in your application.
 
-- Styling depends on [application-styles](https://github.com/Aiwizo/application-styles) style sheets.
+## Styling
+
+At the moment styling is depending on these stylesheets from [application-styles](https://github.com/Aiwizo/application-styles)
+
+```
+<link
+  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/reset.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/fonts.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/animations.css"
+  rel="stylesheet"
+/>
+<link
+  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/colors.css"
+  rel="stylesheet"
+/>
+```
+
+Custom styling may or may not be a feature in the future.
 
 ## Contribution
 
