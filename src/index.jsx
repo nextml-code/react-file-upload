@@ -7,7 +7,7 @@ import useFileUploadBatchControl from "./hooks/useFileUploadBatchControl";
 import FileUploadForm from "./components/FileUploadForm";
 import initialState from "./store/initialState";
 
-const FileUpload = ({ url, callback, requestBatchSize = 1 }) => {
+const FileUpload = ({ url, callback, onRowClick, requestBatchSize = 1 }) => {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     requestBatchSize,
@@ -18,7 +18,7 @@ const FileUpload = ({ url, callback, requestBatchSize = 1 }) => {
   return (
     <div style={wrapperStyle}>
       <FileUploadForm state={state} dispatch={dispatch} />
-      <FileList {...state} onClick={callback} dispatch={dispatch} />
+      <FileList {...state} onRowClick={onRowClick} dispatch={dispatch} />
     </div>
   );
 };

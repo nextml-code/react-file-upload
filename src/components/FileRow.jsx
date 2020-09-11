@@ -5,6 +5,9 @@ import { UPLOADING, FAIL } from "../core/constants";
 import ProgressBar from "./ProgressBar";
 import RetryButton from "./RetryButton";
 import StatusIcon from "./StatusIcon";
+import { triggerOnEvent } from "../core/events";
+import objectMatchFilter from "../core/objectMatch";
+import { filter, first } from "../core/functional";
 
 const getStatusText = (status) => {
   switch (status) {
@@ -20,8 +23,23 @@ const getStatusText = (status) => {
   }
 };
 
-const FileRow = ({ name, size, status, progress, dispatch, id }) => (
-  <div style={fileRowStyle(status)}>
+const FileRow = ({
+  name,
+  size,
+  status,
+  progress,
+  dispatch,
+  id,
+  onClick,
+  fileData,
+}) => (
+  <div
+    style={fileRowStyle(status)}
+    onClick={triggerOnEvent(
+      onClick,
+      first(filter(fileData, objectMatchFilter("localFileId", id))),
+    )}
+  >
     <div style={{ display: "flex", alignItems: "baseline" }}>
       <StatusIcon status={status} />
       <span>{name}</span>
