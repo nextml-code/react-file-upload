@@ -4,10 +4,11 @@ import {
   SET_NEXT_UPLOAD,
   SET_FILE_STATUS,
   APPEND_FILES,
+  FILE_RESPONSE,
 } from "./actionTypes";
 import prepareUpdateFileStatus from "./prepareUpdateFileStatus";
 import { map } from "../core/functional";
-import { PENDING, NEXT } from "../core/constants";
+import { PENDING, NEXT, DONE } from "../core/constants";
 
 const actionSwitch = (state, action) => {
   const updateFileStatus = prepareUpdateFileStatus(state.fileStatusArray);
@@ -57,6 +58,21 @@ const actionSwitch = (state, action) => {
       return {
         ...state,
         fileStatusArray: updateFileStatus(action.payload),
+      };
+    }
+
+    case FILE_RESPONSE: {
+      return {
+        ...state,
+        fileStatusArray: updateFileStatus({
+          id: action.payload.id,
+          status: DONE,
+          progress: 100,
+        }),
+        fileData: [
+          ...state.fileData,
+          { ...action.payload.data, localFileId: action.payload.id },
+        ],
       };
     }
 

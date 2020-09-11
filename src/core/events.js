@@ -35,4 +35,10 @@ export const handleOnChange = ({ dispatch, event }) => {
 };
 
 export const preventEventDefault = (event) => event.preventDefault();
-export const triggerOnEvent = (func, param) => (_) => func(param);
+
+export const triggerOnEvent = (func, param) => (_) => {
+  if (typeof param === "function") {
+    return func(param());
+  }
+  return func(param);
+};

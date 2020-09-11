@@ -2,9 +2,14 @@ import React from "react";
 import FileRow from "./FileRow";
 import { map } from "../core/functional";
 import objectMatchFilter from "../core/objectMatch";
-import { triggerOnEvent } from "../core/events";
 
-const FileList = ({ files, fileStatusArray, onClick, dispatch }) => {
+const FileList = ({
+  files,
+  fileStatusArray,
+  fileData,
+  onRowClick,
+  dispatch,
+}) => {
   const renderFileRow = (file) => {
     const [{ progress, status }] = fileStatusArray.filter(
       objectMatchFilter("id", file.id),
@@ -14,11 +19,12 @@ const FileList = ({ files, fileStatusArray, onClick, dispatch }) => {
       <FileRow
         progress={progress}
         status={status}
-        onClick={triggerOnEvent(onClick, file.id)}
+        onClick={onRowClick}
         key={file.id}
         size={file.size}
         name={file.name}
         id={file.id}
+        fileData={fileData}
         dispatch={dispatch}
       />
     );

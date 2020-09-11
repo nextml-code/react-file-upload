@@ -1,10 +1,10 @@
 // Make an upload request one after one
 import upload from "../core/upload";
 import { useEffect } from "react";
-import { SET_FILE_STATUS } from "../store/actionTypes";
+import { SET_FILE_STATUS, FILE_RESPONSE } from "../store/actionTypes";
 import { divide } from "../core/functional";
 import getFilesWithStatus from "../core/getFilesWithStatus";
-import { UPLOADING, NEXT, FAIL, DONE } from "../core/constants";
+import { UPLOADING, NEXT, FAIL } from "../core/constants";
 
 // Start upload all files with the status 'next'
 const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
@@ -24,11 +24,10 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
 
     const responseHandler = (fileId) => (response) => {
       dispatch({
-        type: SET_FILE_STATUS,
+        type: FILE_RESPONSE,
         payload: {
           id: fileId,
-          progress: 100,
-          status: DONE,
+          data: response.data,
         },
       });
       callback(response);
