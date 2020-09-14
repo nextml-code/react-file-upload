@@ -29,6 +29,12 @@ import FileUpload from "@aiwizo/react-file-upload";
   // Amount of parallell file uploads.
   // Defaults to 1.
   requestBatchSize={1}
+  // Calls this function with the
+  // data returned from the upload request
+  // of a file
+  onRowClick={(fileResponseData) => {
+    // Do something with the data from the file upload response
+  }}
 />
 ```
 
