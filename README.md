@@ -1,6 +1,6 @@
 # @aiwizo/react-file-upload
 
-**NOTE! v0.1 - alpha. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.2.x - alpha. Not production ready. Still needs testing and improvements.**
 
 File upload component for React.
 
