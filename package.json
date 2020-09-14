@@ -8,7 +8,7 @@
     "build:prod": "NODE_ENV=production rollup --config",
     "build:dev": "NODE_ENV=development rollup --config",
     "build:local": "npm run build && npm pack",
-    "storybook": "start-storybook -p 6006",
+    "start": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "devDependencies": {
