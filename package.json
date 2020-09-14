@@ -1,5 +1,5 @@
 {
-  "name": "@aiwizo/react-file-upload",
+  "name": "react-file-upload",
   "version": "0.2.0",
   "main": "index.js",
   "scripts": {
