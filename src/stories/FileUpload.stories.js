@@ -11,7 +11,7 @@ const Template = (args) => <FileUpload {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  url: "http://localhost:9000/file",
+  url: "http://localhost:8080/file",
   callback: (fileUploadResponse) => {
     console.log(fileUploadResponse);
   },
