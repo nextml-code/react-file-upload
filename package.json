@@ -2,6 +2,11 @@
   "name": "@aiwizo/react-file-upload",
   "version": "0.2.0",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Aiwizo/react-file-upload.git"
+  },
+  "homepage": "https://github.com/Aiwizo/react-file-upload",
   "scripts": {
     "test": "jest",
     "build": "npm run build:dev && npm run build:prod",

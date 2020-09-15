@@ -26,7 +26,7 @@ import FileUpload from "@aiwizo/react-file-upload";
   callback={(fileUploadResponse) => {
     // Do something with a file upload response
   }}
-  // Amount of parallell file uploads.
+  // Amount of parallel file uploads.
   // Defaults to 1.
   requestBatchSize={1}
   // Calls this function with the
