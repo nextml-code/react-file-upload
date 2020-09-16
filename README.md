@@ -44,7 +44,7 @@ Make sure that the peer dependencies in `package.json` are installed in your app
 
 At the moment styling is depending on these stylesheets from [application-styles](https://github.com/Aiwizo/application-styles)
 
-```
+```html
 <link
   href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/reset.css"
   rel="stylesheet"
