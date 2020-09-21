@@ -7,6 +7,7 @@
     "url": "https://github.com/Aiwizo/react-file-upload.git"
   },
   "homepage": "https://github.com/Aiwizo/react-file-upload",
+  "license": "Apache-2.0",
   "scripts": {
     "test": "jest",
     "build": "npm run build:dev && npm run build:prod",
