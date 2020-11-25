@@ -1,8 +1,3 @@
-import { PENDING, UPLOADING, FAIL } from "../core/constants";
-
-const spacing = "20px";
-const borderRadius = "3px";
-
 /**
  * Style for the form both when
  * dragging and not dragging
@@ -14,8 +9,10 @@ const commonStyle = {
   backgroundColor: "var(--aiwizo-application-light-background-blue)",
   alignItems: "center",
   fontWeight: 900,
-  fontSize: "18px",
+  fontSize: "var(--aiwizo-application-font-size-big)",
   color: "#111",
+  borderTopRightRadius: "var(--aiwizo-application-border-radius-primary)",
+  borderTopLeftRadius: "var(--aiwizo-application-border-radius-primary)",
 };
 
 /**
@@ -31,64 +28,23 @@ const draggingStyle = {
  */
 export const wrapperStyle = {
   border: "1px solid var(--aiwizo-application-primary-border-blue)",
-  borderRadius,
+  borderRadius: "var(--aiwizo-application-border-radius-primary)",
   backgroundColor: "#ffffff",
 };
 
 export const buttonStyle = {
-  borderRadius: "3px",
+  borderRadius: "var(--aiwizo-application-border-radius-primary)",
   backgroundColor: "rgb(81, 173, 237)",
   color: "#ffffff",
   cursor: "pointer",
   boxSizing: "border-box",
-  padding: "5px 7px",
-  marginTop: "10px",
+  padding:
+    "var(--aiwizo-application-spacing-mini) var(--aiwizo-application-spacing-small)",
+  marginTop: "var(--aiwizo-application-spacing-small)",
 };
 
 export const labelStyle = {
   width: "100%",
-  padding: spacing,
+  padding: "var(--aiwizo-application-spacing-medium)",
   textAlign: "center",
 };
-
-export const fileRowStyle = (status) => ({
-  padding: "10px 20px",
-  fontFamily: '"Open Sans", sans-serif',
-  borderTop: "1px solid var(--aiwizo-application-secondary-border-blue)",
-  fontSize: "14px",
-  display: "flex",
-  flexDirection: "column",
-  ...((status) => {
-    switch (status) {
-      case UPLOADING: {
-        return {
-          backgroundColor: "var(--aiwizo-application-light-background-blue)",
-        };
-      }
-      case PENDING: {
-        return {
-          backgroundColor: "var(--aiwizo-application-light-background-grey)",
-          color: "var(--aiwizo-application-faded-text-grey)",
-        };
-      }
-      case FAIL: {
-        return {
-          backgroundColor: "var(--aiwizo-application-light-background-red)",
-          color: "var(--aiwizo-application-grey)",
-        };
-      }
-      default: {
-        return { backgroundColor: "#ffffff" };
-      }
-    }
-  })(status),
-});
-
-const getFormStyle = ({ isDragging }) => {
-  if (isDragging) {
-    return { ...commonStyle, ...draggingStyle };
-  }
-  return commonStyle;
-};
-
-export default getFormStyle;
