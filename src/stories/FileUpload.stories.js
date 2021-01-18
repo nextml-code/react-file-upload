@@ -11,9 +11,10 @@ const Template = (args) => <FileUpload {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  url: "http://localhost:8080/file",
-  callback: (fileUploadResponse) => {
+  url: "http://localhost:8080/files",
+  callback: (fileUploadResponse, fileData) => {
     console.log(fileUploadResponse);
+    console.log(fileData);
   },
   requestBatchSize: 3,
   onRowClick: (fileData) => {
