@@ -5,6 +5,7 @@ import { SET_FILE_STATUS, FILE_RESPONSE } from "../store/actionTypes";
 import { divide } from "../core/functional";
 import getFilesWithStatus from "../core/getFilesWithStatus";
 import { UPLOADING, NEXT, FAIL } from "../core/constants";
+import readFileData from "../core/readFileData";
 
 // Start upload all files with the status 'next'
 const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
@@ -22,15 +23,17 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
       });
     };
 
-    const responseHandler = (fileId) => (response) => {
+    const responseHandler = (file) => (response) => {
       dispatch({
         type: FILE_RESPONSE,
         payload: {
-          id: fileId,
+          id: file.id,
           data: response.data,
         },
       });
-      callback(response);
+      readFileData(file).then((fileData) => {
+        callback(response, fileData);
+      });
     };
 
     const errorHandler = (fileId) => (error) => {
@@ -55,7 +58,7 @@ const useFileUpload = ({ files, fileStatusArray }, dispatch, url, callback) => {
       });
 
       upload(url, progressHandler(nextFile.id))(nextFile)
-        .then(responseHandler(nextFile.id))
+        .then(responseHandler(nextFile))
         .catch(errorHandler(nextFile.id));
     }
   }, [fileStatusArray]);
