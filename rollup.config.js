@@ -6,7 +6,7 @@ import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import json from "@rollup/plugin-json";
 
 const NODE_ENV = process.env.NODE_ENV || "development";
-const outputFile = NODE_ENV === "production" ? "./lib/prod.js" : "./lib/dev.js";
+const outputFile = "./lib/index.js";
 
 const extensions = [".js", ".jsx"];
 
