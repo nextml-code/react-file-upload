@@ -4,6 +4,7 @@ import commonjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import json from "@rollup/plugin-json";
+import postcss from "rollup-plugin-postcss";
 
 const NODE_ENV = process.env.NODE_ENV || "development";
 const outputFile = "./lib/index.js";
@@ -31,8 +32,12 @@ export default {
   plugins: [
     peerDepsExternal(),
     json(),
+    postcss({
+      plugins: [],
+    }),
     replace({
       "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
+      preventAssignment: true,
     }),
     babel({
       exclude: "node_modules/**",

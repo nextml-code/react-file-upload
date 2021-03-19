@@ -1,5 +1,4 @@
-const devLib = require("../lib/dev");
-const prodLib = require("../lib/prod");
+const lib = require("../lib");
 
 test("Dummy test", () => {
   expect(1).toBe(1);
