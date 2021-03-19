@@ -47,7 +47,7 @@ const useFileUpload = (
           status: FAIL,
         },
       });
-      callback(error);
+      onUploadResponse(error);
     };
 
     if (nextFile !== undefined) {
