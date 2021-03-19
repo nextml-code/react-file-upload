@@ -1,6 +1,6 @@
 # @aiwizo/react-file-upload
 
-**NOTE! v0.2.x - alpha. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.3.x - beta. Not production ready. Still needs testing and improvements.**
 
 File upload component for React.
 
@@ -17,13 +17,13 @@ npm install @aiwizo/react-file-upload
 import FileUpload from "@aiwizo/react-file-upload";
 ```
 
-```javascript
+```jsx
 <FileUpload
   // Upload url
   url="https://my.awesome/api/endpoint"
   // The callback function is called each
   // time we get a file upload response.
-  callback={(fileUploadResponse) => {
+  onUploadResponse={(fileUploadResponse) => {
     // Do something with a file upload response
   }}
   // Amount of parallel file uploads.
@@ -39,31 +39,6 @@ import FileUpload from "@aiwizo/react-file-upload";
 ```
 
 Make sure that the peer dependencies in `package.json` are installed in your application.
-
-## Styling
-
-At the moment styling is depending on these stylesheets from [application-styles](https://github.com/Aiwizo/application-styles)
-
-```html
-<link
-  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/reset.css"
-  rel="stylesheet"
-/>
-<link
-  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/fonts.css"
-  rel="stylesheet"
-/>
-<link
-  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/animations.css"
-  rel="stylesheet"
-/>
-<link
-  href="https://cdn.jsdelivr.net/gh/aiwizo/application-styles@latest/colors.css"
-  rel="stylesheet"
-/>
-```
-
-Custom styling may or may not be a feature in the future.
 
 ## Contribution
 

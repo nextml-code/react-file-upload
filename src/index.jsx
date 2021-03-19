@@ -9,13 +9,18 @@ import FileDropzone from "@aiwizo/react-file-dropzone";
 import "@aiwizo/application-styles";
 import appendFiles from "./store/appendFiles";
 
-const FileUpload = ({ url, callback, onRowClick, requestBatchSize = 1 }) => {
+const FileUpload = ({
+  url,
+  onUploadResponse,
+  onRowClick,
+  requestBatchSize = 1,
+}) => {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     requestBatchSize,
   });
   useFileUploadBatchControl(state, dispatch);
-  useFileUpload(state, dispatch, url, callback);
+  useFileUpload(state, dispatch, url, onUploadResponse);
 
   const borderRadius =
     "calc(var(--aiwizo-application-border-radius-primary) - 1px)";
