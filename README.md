@@ -23,8 +23,8 @@ import FileUpload from "@aiwizo/react-file-upload";
   url="https://my.awesome/api/endpoint"
   // The callback function is called each
   // time we get a file upload response.
-  onUploadResponse={(fileUploadResponse) => {
-    // Do something with a file upload response
+  onUploadResponse={(fileUploadResponse, file) => {
+    // Do something with a file upload response or file
   }}
   // Amount of parallel file uploads.
   // Defaults to 1.
