@@ -14,13 +14,14 @@ const FileUpload = ({
   onUploadResponse,
   onRowClick,
   requestBatchSize = 1,
+  requestOptions,
 }) => {
   const [state, dispatch] = useReducer(reducer, {
     ...initialState,
     requestBatchSize,
   });
   useFileUploadBatchControl(state, dispatch);
-  useFileUpload(state, dispatch, url, onUploadResponse);
+  useFileUpload(state, dispatch, url, onUploadResponse, requestOptions);
 
   const borderRadius =
     "calc(var(--aiwizo-application-border-radius-primary) - 1px)";

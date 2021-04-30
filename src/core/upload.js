@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const upload = (url, onUploadProgress) => (file) => {
+const upload = (url, onUploadProgress, requestOptions) => (file) => {
   const data = new FormData();
   data.append("file", file);
 
@@ -9,7 +9,10 @@ const upload = (url, onUploadProgress) => (file) => {
     url,
     data,
     onUploadProgress,
-    headers: { "Content-Type": "multipart/form-data" },
+    headers: {
+      "Content-Type": "multipart/form-data",
+      ...requestOptions.headers,
+    },
   });
 };
 
