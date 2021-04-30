@@ -20,5 +20,14 @@ Primary.args = {
   onRowClick: (fileData) => {
     console.log(fileData);
   },
-  requestOptions: { headers: { authorization: "Bearer sometoken" } },
+  requestOptions: {
+    headers: { authorization: "Bearer sometoken" },
+    // body: {
+    //   file: { name: "my filename" },
+    //   client: {
+    //     name: "localhost",
+    //     version: "v0.0.1",
+    //   },
+    // },
+  },
 };
