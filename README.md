@@ -37,11 +37,30 @@ import FileUpload from "@aiwizo/react-file-upload";
   }}
   // Options for configuring the request made
   // when posting the file to the specified url.
-  // Currently supports: headers
   requestOptions={{
     headers: {},
+    body: {
+      /* JSON */
+    },
   }}
 />
+```
+
+## Request options
+
+Its possible to set request headers and body through the `requestOptions` parameter.
+
+If a body is set the `content-type` header is set to `application/json` and the file will be converted to a base64 string and passed to the `body.file.data` field i.e.
+
+```javascript
+// Request body:
+{
+  ...requestOptions.body,
+  file: {
+    ...requestOptions.body.file,
+    data: "data:image/jpeg;base64,/9j/4AAQSkZJRgABA...",
+  },
+}
 ```
 
 Make sure that the peer dependencies in `package.json` are installed in your application.

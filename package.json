@@ -19,6 +19,7 @@
   "dependencies": {
     "@aiwizo/application-styles": "^0.0.3",
     "@aiwizo/react-file-dropzone": "^0.0.5",
+    "@codewell/is-defined": "^2.0.0",
     "@codewell/state-logger": "^1.0.0"
   },
   "devDependencies": {
