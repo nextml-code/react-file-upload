@@ -12,6 +12,7 @@ const useFileUpload = (
   dispatch,
   url,
   onUploadResponse,
+  requestOptions,
 ) => {
   useEffect(() => {
     const [nextFile] = getFilesWithStatus(files, fileStatusArray, NEXT);
@@ -60,7 +61,7 @@ const useFileUpload = (
         },
       });
 
-      upload(url, progressHandler(nextFile.id))(nextFile)
+      upload(url, progressHandler(nextFile.id), requestOptions)(nextFile)
         .then(responseHandler(nextFile))
         .catch(errorHandler(nextFile.id));
     }

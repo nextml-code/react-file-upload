@@ -35,6 +35,12 @@ import FileUpload from "@aiwizo/react-file-upload";
   onRowClick={(fileResponseData) => {
     // Do something with the data from the file upload response
   }}
+  // Options for configuring the request made
+  // when posting the file to the specified url.
+  // Currently supports: headers
+  requestOptions={{
+    headers: {},
+  }}
 />
 ```
 
