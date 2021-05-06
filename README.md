@@ -1,13 +1,13 @@
 # @aiwizo/react-file-upload
 
-**NOTE! v0.3.x - beta. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.4.x - beta. Not production ready. Still needs testing and improvements.**
 
 File upload component for React.
 
 ## Installation
 
 ```
-npm install @aiwizo/react-file-upload
+npm install @aiwizo/react-file-upload @aiwizo/application-styles
 ```
 
 ## Basic Usage
