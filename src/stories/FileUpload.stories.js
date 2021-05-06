@@ -1,5 +1,6 @@
 import React from "react";
 
+import "@aiwizo/application-styles";
 import FileUpload from "../";
 
 export default {
