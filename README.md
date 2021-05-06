@@ -13,7 +13,7 @@ npm install @aiwizo/react-file-upload @aiwizo/application-styles
 ## Basic Usage
 
 ```javascript
-// Importing
+import "@aiwizo/application-styles";
 import FileUpload from "@aiwizo/react-file-upload";
 ```
 
