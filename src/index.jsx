@@ -6,7 +6,6 @@ import useFileUpload from "./hooks/useFileUpload";
 import useFileUploadBatchControl from "./hooks/useFileUploadBatchControl";
 import initialState from "./store/initialState";
 import FileDropzone from "@aiwizo/react-file-dropzone";
-import "@aiwizo/application-styles";
 import appendFiles from "./store/appendFiles";
 
 const FileUpload = ({

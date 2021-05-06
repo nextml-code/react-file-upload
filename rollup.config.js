@@ -7,14 +7,13 @@ import json from "@rollup/plugin-json";
 import postcss from "rollup-plugin-postcss";
 
 const NODE_ENV = process.env.NODE_ENV || "development";
-const outputFile = "./lib/index.js";
 
 const extensions = [".js", ".jsx"];
 
 export default {
   input: "./src/index.jsx",
   output: {
-    file: outputFile,
+    file: "./lib/index.js",
     format: "cjs",
     globals: {
       react: "React",
@@ -28,6 +27,7 @@ export default {
     /@babel\/runtime/,
     "styled-components",
     /@fortawesome\//,
+    "@aiwizo/application-styles",
   ],
   plugins: [
     peerDepsExternal(),

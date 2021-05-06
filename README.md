@@ -65,6 +65,14 @@ If a body is set the `content-type` header is set to `application/json` and the 
 
 Make sure that the peer dependencies in `package.json` are installed in your application.
 
+## Dependency issues
+
+`npm install` breaks because of storybook. Workaround:
+
+```
+npx sb@latest upgrade && npm install
+```
+
 ## Contribution
 
 Please let us know if you have any issues. Put an issue here on github and we'll do our best to solve it.
