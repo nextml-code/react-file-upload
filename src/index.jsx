@@ -14,8 +14,9 @@ const FileUpload = ({
   onRowClick,
   requestBatchSize = 1,
   requestOptions,
+  loglevel,
 }) => {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(reducer({ loglevel }), {
     ...initialState,
     requestBatchSize,
   });

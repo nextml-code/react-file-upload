@@ -12,7 +12,7 @@ const Template = (args) => <FileUpload {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  url: "http://localhost:8080/files",
+  url: "http://local.dev.data-annotation/v1/resources",
   onUploadResponse: (fileUploadResponse, fileData) => {
     console.log(fileUploadResponse);
     console.log(fileData);
@@ -23,12 +23,12 @@ Primary.args = {
   },
   requestOptions: {
     headers: { authorization: "Bearer sometoken" },
-    // body: {
-    //   file: { name: "my filename" },
-    //   client: {
-    //     name: "localhost",
-    //     version: "v0.0.1",
-    //   },
-    // },
+    body: {
+      client: {
+        name: "localhost",
+        version: "v0.0.1",
+      },
+    },
   },
+  loglevel: "",
 };

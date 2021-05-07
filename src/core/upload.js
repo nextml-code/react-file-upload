@@ -1,6 +1,7 @@
 import axios from "axios";
 import isDefined from "@codewell/is-defined";
 import fileToBase64 from "./fileToBase64";
+import base64ToFileObject from "./base64ToFileObject";
 
 const getData = (requestOptions, file) =>
   new Promise((resolve, reject) => {
@@ -11,7 +12,7 @@ const getData = (requestOptions, file) =>
             ...requestOptions.body,
             file: {
               ...requestOptions.body.file,
-              data: base64File,
+              ...base64ToFileObject(base64File),
             },
           });
         })
