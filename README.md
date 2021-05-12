@@ -48,6 +48,8 @@ import FileUpload from "@aiwizo/react-file-upload";
 
 ## Request options
 
+### JSON
+
 Its possible to set request headers and body through the `requestOptions` parameter.
 
 If a body is set the `content-type` header is set to `application/json` and the file will be converted to a base64 string and passed to the `body.file.data` field i.e.
@@ -62,6 +64,25 @@ If a body is set the `content-type` header is set to `application/json` and the 
   },
 }
 ```
+
+### form-data
+
+Set additional `multipart/form-data` entries through the `requestOptions.form` parameter.
+
+The uploaded file will still be set as the entry `file`.
+
+Example:
+
+```javascript
+requestionOptions={{
+  form: {
+    text: "text",
+    value: 3,
+  }
+}}
+```
+
+Does not yet support nested `requestionOptions.form`.
 
 Make sure that the peer dependencies in `package.json` are installed in your application.
 
