@@ -7,15 +7,37 @@ import useFileUploadBatchControl from "./hooks/useFileUploadBatchControl";
 import initialState from "./store/initialState";
 import FileDropzone from "@aiwizo/react-file-dropzone";
 import appendFiles from "./store/appendFiles";
+import isDefined from "@codewell/is-defined";
 
 const FileUpload = ({
   url,
   onUploadResponse,
   onRowClick,
   requestBatchSize = 1,
-  requestOptions,
+  requestOptions = {},
   loglevel,
 }) => {
+  if (isDefined(requestOptions.body) && isDefined(requestOptions.form)) {
+    throw new Error(
+      "Specifying both requestOptions.body and requestOptions.form is a contradiction.",
+    );
+  }
+  if (isDefined(requestOptions.form)) {
+    if (Array.isArray(requestOptions.form)) {
+      throw new Error("requestOptions.form is an array.");
+    }
+    if (typeof requestOptions.form !== "object") {
+      throw new Error("requestOptions.form is not an object.");
+    }
+    Object.keys(requestOptions.form).forEach((key) => {
+      if (typeof requestOptions.form[key] === "object") {
+        throw new Error(
+          `requestOptions.form[${key}]: Nested form not supported yet.`,
+        );
+      }
+    });
+  }
+
   const [state, dispatch] = useReducer(reducer({ loglevel }), {
     ...initialState,
     requestBatchSize,

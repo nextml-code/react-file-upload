@@ -19,10 +19,18 @@ const getData = (requestOptions, file) =>
           });
         })
         .catch(reject);
+    } else {
+      const data = new FormData();
+      data.append("file", file);
+
+      if (isDefined(requestOptions.form)) {
+        Object.keys(requestOptions.form).forEach((key) => {
+          data.append(key, requestOptions.form[key]);
+        });
+      }
+
+      return resolve(data);
     }
-    const data = new FormData();
-    data.append("file", file);
-    return resolve(data);
   });
 
 const getHeaders = (requestOptions) => {
