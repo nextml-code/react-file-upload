@@ -1,7 +1,5 @@
 import React from "react";
-
-import "@aiwizo/application-styles";
-import FileUpload from "../";
+import { FileUpload } from "../";
 
 export default {
   title: "File upload",
@@ -11,7 +9,7 @@ export default {
 const Template = (args) => <FileUpload {...args} />;
 
 const commonArgs = {
-  url: "http://localhost:8000/v1/models",
+  url: "http://localhost:8080/",
   onUploadResponse: (fileUploadResponse, fileData) => {
     console.log(fileUploadResponse, fileData);
   },
@@ -27,30 +25,30 @@ RequestOptionsEmpty.args = {
   ...commonArgs,
 };
 
-export const RequestOptionsBody = Template.bind({});
-RequestOptionsBody.args = {
-  ...commonArgs,
-  requestOptions: {
-    headers: { authorization: "Bearer sometoken" },
-    body: {
-      client: {
-        name: "localhost",
-        version: "v0.0.1",
-      },
-    },
-  },
-};
+// export const RequestOptionsBody = Template.bind({});
+// RequestOptionsBody.args = {
+//   ...commonArgs,
+//   requestOptions: {
+//     headers: { authorization: "Bearer sometoken" },
+//     body: {
+//       client: {
+//         name: "localhost",
+//         version: "v0.0.1",
+//       },
+//     },
+//   },
+// };
 
-export const RequestOptionsForm = Template.bind({});
-RequestOptionsForm.args = {
-  ...commonArgs,
-  requestOptions: {
-    headers: { authorization: "Bearer sometoken" },
-    body: {
-      client: {
-        name: "localhost",
-        version: "v0.0.1",
-      },
-    },
-  },
-};
+// export const RequestOptionsForm = Template.bind({});
+// RequestOptionsForm.args = {
+//   ...commonArgs,
+//   requestOptions: {
+//     headers: { authorization: "Bearer sometoken" },
+//     body: {
+//       client: {
+//         name: "localhost",
+//         version: "v0.0.1",
+//       },
+//     },
+//   },
+// };

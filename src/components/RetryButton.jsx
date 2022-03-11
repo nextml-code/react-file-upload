@@ -13,7 +13,7 @@ const retry = (dispatch, fileId) => (_) => {
 };
 
 const buttonStyle = {
-  color: "var(--aiwizo-application-blue)",
+  color: "var(--react-file-upload-blue)",
   cursor: "pointer",
   textDecoration: "underline",
   marginLeft: "7px",

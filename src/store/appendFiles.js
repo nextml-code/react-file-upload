@@ -2,11 +2,11 @@ import { APPEND_FILES } from "./actionTypes";
 import { map } from "../core/functional";
 import { v4 as uuid } from "uuid";
 
-const appendFiles = (files) => {
+const assignId = (x) => Object.assign(x, { id: uuid() });
+
+export const appendFiles = (files) => {
   return {
     type: APPEND_FILES,
-    payload: map([...files], (file) => Object.assign(file, { id: uuid() })),
+    payload: map(assignId)([...files]),
   };
 };
-
-export default appendFiles;
