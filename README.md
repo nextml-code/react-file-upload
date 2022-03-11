@@ -1,6 +1,6 @@
 # @nextml/react-file-upload
 
-**NOTE! v0.0.x - alpha. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.x.x - beta. Not production ready. Still needs testing and improvements.**
 
 File upload component for React.
 
@@ -13,7 +13,7 @@ npm install @nextml/react-file-upload
 ## Basic Usage
 
 ```javascript
-import { FileUpload } from "@aiwizo/react-file-upload";
+import { FileUpload } from "@nextml/react-file-upload";
 ```
 
 ```jsx
@@ -85,12 +85,12 @@ Does not yet support nested `requestionOptions.form`.
 
 Make sure that the peer dependencies in `package.json` are installed in your application.
 
-## Dependency issues
+## Development
 
-`npm install` breaks because of storybook. Workaround:
+Start storybook with
 
 ```
-npx sb@latest upgrade && npm install
+npm start
 ```
 
 ## Contribution
