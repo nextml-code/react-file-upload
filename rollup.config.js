@@ -1,17 +1,21 @@
-import babel from "@rollup/plugin-babel";
-import resolve from "@rollup/plugin-node-resolve";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
-import replace from "@rollup/plugin-replace";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import json from "@rollup/plugin-json";
+import babel from "@rollup/plugin-babel";
 import postcss from "rollup-plugin-postcss";
 
-const NODE_ENV = process.env.NODE_ENV || "development";
+const peerDependencies = [
+  "react",
+  "react-dom",
+  "styled-components",
+  /@fortawesome\//,
+  /@babel\/runtime/,
+];
 
 const extensions = [".js", ".jsx"];
 
 export default {
-  input: "./src/index.jsx",
+  input: "src/index.jsx",
+
   output: {
     file: "./lib/index.js",
     format: "cjs",
@@ -21,43 +25,28 @@ export default {
     },
     exports: "auto",
   },
-  external: [
-    "react",
-    "react-dom",
-    /@babel\/runtime/,
-    "styled-components",
-    /@fortawesome\//,
-  ],
+
   plugins: [
-    peerDepsExternal(),
-    json(),
     postcss({
       plugins: [],
     }),
-    replace({
-      "process.env.NODE_ENV": JSON.stringify(NODE_ENV),
-      preventAssignment: true,
+    nodeResolve({
+      customResolveOptions: {
+        moduleDirectories: ["node_modules"],
+      },
+      extensions,
+      preferBuiltins: true,
     }),
     babel({
       exclude: "node_modules/**",
-      presets: [
-        [
-          "@babel/preset-env",
-          {
-            targets: {
-              esmodules: true,
-            },
-          },
-        ],
-        "@babel/preset-react",
-      ],
+      presets: ["@babel/preset-react"],
       plugins: ["@babel/transform-runtime"],
       extensions,
       babelHelpers: "runtime",
     }),
-    resolve({
-      extensions,
+    commonjs({
+      include: ["node_modules/**"],
     }),
-    commonjs(),
   ],
+  external: [...peerDependencies],
 };

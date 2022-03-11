@@ -1,6 +1,6 @@
 # @nextml/react-file-upload
 
-**NOTE! v0.x.x - beta. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.x.x-beta. Not stable.**
 
 File upload component for React.
 
