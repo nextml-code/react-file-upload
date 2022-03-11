@@ -1,0 +1,93 @@
+/* Reset */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  /* - - - - - - - - Fonts - - - - - - - - */
+
+  --react-file-upload-default-font: "Open Sans", sans-serif;
+
+  /* Font Sizes */
+  --react-file-upload-font-size-small: 10px;
+  --react-file-upload-font-size-regular: 12px;
+  --react-file-upload-font-size-medium: 14px;
+  --react-file-upload-font-size-big: 16px;
+  --react-file-upload-font-size-bigger: 18px;
+
+  /* - - - - - - - - Colors - - - - - - - - */
+
+  --react-file-upload-blue: #51aded;
+  --react-file-upload-blue-dark: #259ced;
+
+  --react-file-upload-grey: #536270;
+  --react-file-upload-grey-dark: #4d5863;
+
+  --react-file-upload-red: #ed5153;
+  --react-file-upload-red-dark: #e0393c;
+
+  --react-file-upload-green: #23ce6b;
+  --react-file-upload-green-dark: #1ec262;
+
+  --react-file-upload-white: #ffffff;
+  --react-file-upload-black: #000000;
+
+  --react-file-upload-purple: #201c35;
+  --react-file-upload-purple-dark: #181528;
+
+  /* Backgrounds */
+  --react-file-upload-light-background-blue: #e6f5fd;
+  --react-file-upload-light-background-grey: #f3f5f6;
+  --react-file-upload-light-background-red: #fff3f3;
+
+  /* Borders */
+  --react-file-upload-primary-border-blue: var(--react-file-upload-blue);
+  --react-file-upload-secondary-border-blue: #cfecfd;
+
+  --react-file-upload-primary-border-grey: #e8eaec;
+
+  /* Text colors */
+  --react-file-upload-faded-text-grey: #a2acb3;
+  --react-file-upload-faded-text-white: #ffffff55;
+
+  /* - - - - - - - - Layout - - - - - - - - */
+
+  /* Spacing */
+  --react-file-upload-spacing-mini: 4px;
+  --react-file-upload-spacing-small: 8px;
+  --react-file-upload-spacing-regular: 16px;
+  --react-file-upload-spacing-medium: 32px;
+  --react-file-upload-spacing-large: 64px;
+
+  /* Radius */
+  --react-file-upload-border-radius-primary: 3px;
+}
+
+/* - - - - - - - - Animations - - - - - - - - */
+
+/* Rotation */
+@-moz-keyframes rotate {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

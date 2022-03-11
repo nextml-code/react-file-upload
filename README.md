@@ -1,20 +1,19 @@
-# @aiwizo/react-file-upload
+# @nextml/react-file-upload
 
-**NOTE! v0.4.x - beta. Not production ready. Still needs testing and improvements.**
+**NOTE! v0.0.x - alpha. Not production ready. Still needs testing and improvements.**
 
 File upload component for React.
 
 ## Installation
 
 ```
-npm install @aiwizo/react-file-upload @aiwizo/application-styles
+npm install @nextml/react-file-upload
 ```
 
 ## Basic Usage
 
 ```javascript
-import "@aiwizo/application-styles";
-import FileUpload from "@aiwizo/react-file-upload";
+import { FileUpload } from "@aiwizo/react-file-upload";
 ```
 
 ```jsx

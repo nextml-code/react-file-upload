@@ -1,9 +1,5 @@
-export const identity = (file) => file;
-
-export const map = (array, func) => array.map(func);
-
-export const divide = (a, b) => a / b;
-
-export const filter = (array, func) => array.filter(func);
-
-export const first = (array) => array[0];
+export const identity = (x) => x;
+export const map = (fn) => (xs) => xs.map(fn);
+export const divide = (x, y) => x / y;
+export const filter = (xs, fn) => xs.filter(fn);
+export const first = (xs) => xs[0];

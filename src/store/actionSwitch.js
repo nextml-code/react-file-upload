@@ -5,6 +5,7 @@ import {
   SET_FILE_STATUS,
   APPEND_FILES,
   FILE_RESPONSE,
+  SET_HOVERED_ROW,
 } from "./actionTypes";
 import prepareUpdateFileStatus from "./prepareUpdateFileStatus";
 import { map } from "../core/functional";
@@ -12,6 +13,7 @@ import { PENDING, NEXT, DONE } from "../core/constants";
 
 const actionSwitch = (state, action) => {
   const updateFileStatus = prepareUpdateFileStatus(state.fileStatusArray);
+
   switch (action.type) {
     case START_DRAG: {
       return {
@@ -33,11 +35,11 @@ const actionSwitch = (state, action) => {
         files: [...state.files, ...action.payload],
         fileStatusArray: [
           ...state.fileStatusArray,
-          ...map(action.payload, (file) => ({
+          ...map((file) => ({
             id: file.id,
             status: PENDING,
             progress: 0,
-          })),
+          }))(action.payload),
         ],
         isDragging: false,
       };
@@ -73,6 +75,13 @@ const actionSwitch = (state, action) => {
           ...state.fileData,
           { ...action.payload.data, localFileId: action.payload.id },
         ],
+      };
+    }
+
+    case SET_HOVERED_ROW: {
+      return {
+        ...state,
+        hoveredRow: action.payload,
       };
     }
 

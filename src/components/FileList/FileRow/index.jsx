@@ -1,12 +1,11 @@
 import React from "react";
-import getSizeUnit from "../../core/getSizeUnit";
-import { UPLOADING, FAIL } from "../../core/constants";
-import ProgressBar from "../ProgressBar";
-import RetryButton from "../RetryButton";
-import StatusIcon from "../StatusIcon";
-import { triggerOnEvent } from "../../core/events";
-import objectMatchFilter from "../../core/objectMatch";
-import { filter, first } from "../../core/functional";
+import getSizeUnit from "../../../core/getSizeUnit";
+import ProgressBar from "../../ProgressBar";
+import RetryButton from "../../RetryButton";
+import StatusIcon from "../../StatusIcon";
+import { triggerOnEvent } from "../../../core/events";
+import objectMatchFilter from "../../../core/objectMatch";
+import { filter, first } from "../../../core/functional";
 import styled from "styled-components";
 import Wrapper from "./Wrapper";
 import StatusText from "./StatusText";
@@ -16,14 +15,14 @@ const Name = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
   flex: 1;
-  font-size: var(--aiwizo-application-font-size-medium);
+  font-size: var(--react-file-upload-font-size-medium);
 `;
 
 const FileSize = styled.span`
-  margin-left: var(--aiwizo-application-spacing-small);
+  margin-left: var(--react-file-upload-spacing-small);
   font-weight: bold;
-  font-size: var(--aiwizo-application-font-size-small);
-  color: var(--aiwizo-application-grey);
+  font-size: var(--react-file-upload-font-size-small);
+  color: var(--react-file-upload-grey);
 `;
 
 const FileRow = ({
@@ -35,6 +34,8 @@ const FileRow = ({
   id,
   onClick,
   fileData,
+  onHover,
+  isHovered,
 }) => (
   <Wrapper
     status={status}
@@ -42,8 +43,21 @@ const FileRow = ({
       onClick,
       first(filter(fileData, objectMatchFilter("localFileId", id))),
     )}
+    onMouseEnter={() => onHover(id)}
+    onMouseMove={() => onHover(id)}
+    onMouseLeave={() => onHover(null)}
+    style={{
+      backgroundColor: isHovered
+        ? "var(--react-file-upload-light-background-grey)"
+        : "transparent",
+    }}
   >
-    <div style={{ display: "flex", alignItems: "baseline" }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "baseline",
+      }}
+    >
       <StatusIcon status={status} />
       <Name>{name}</Name>
       <FileSize>

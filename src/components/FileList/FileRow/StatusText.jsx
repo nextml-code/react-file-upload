@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FAIL, UPLOADING } from "../../core/constants";
+import { FAIL, UPLOADING } from "../../../core/constants";
 
 const getStatusText = (status) => {
   switch (status) {
@@ -17,7 +17,7 @@ const getStatusText = (status) => {
 };
 
 const Wrapper = styled.span`
-  margin-left: var(--aiwizo-application-spacing-small);
+  margin-left: var(--react-file-upload-spacing-small);
 `;
 
 const StatusText = ({ status }) => {

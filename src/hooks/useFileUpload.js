@@ -5,18 +5,18 @@ import { SET_FILE_STATUS, FILE_RESPONSE } from "../store/actionTypes";
 import { divide } from "../core/functional";
 import getFilesWithStatus from "../core/getFilesWithStatus";
 import { UPLOADING, NEXT, FAIL } from "../core/constants";
+import { useState } from "../store/ContextProvider";
 
 // Start upload all files with the status 'next'
-const useFileUpload = (
-  { files, fileStatusArray },
-  dispatch,
-  url,
-  onUploadResponse,
-  requestOptions,
-) => {
-  useEffect(() => {
-    const [nextFile] = getFilesWithStatus(files, fileStatusArray, NEXT);
+export const useFileUpload = (url, onUploadResponse, requestOptions) => {
+  const {
+    state: { files, fileStatusArray },
+    dispatch,
+  } = useState();
 
+  const [nextFile] = getFilesWithStatus(files, fileStatusArray, NEXT);
+
+  useEffect(() => {
     const progressHandler = (fileId) => (event) => {
       dispatch({
         type: SET_FILE_STATUS,
@@ -67,5 +67,3 @@ const useFileUpload = (
     }
   }, [fileStatusArray]);
 };
-
-export default useFileUpload;

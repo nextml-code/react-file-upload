@@ -1,6 +1,6 @@
 import axios from "axios";
-import isDefined from "@codewell/is-defined";
 import fileToBase64 from "./fileToBase64";
+import { isDefined } from "./isDefined";
 
 const getData = (requestOptions, file) =>
   new Promise((resolve, reject) => {

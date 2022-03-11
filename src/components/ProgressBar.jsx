@@ -10,12 +10,12 @@ const progressbarStyle = {
 };
 const doneStyle = (progress) => ({
   width: `${progress}%`,
-  backgroundColor: "var(--aiwizo-application-blue)",
+  backgroundColor: "var(--react-file-upload-blue)",
 });
 
 const leftStyle = (progress) => ({
   width: `${100 - progress}%`,
-  backgroundColor: "var(--aiwizo-application-grey)",
+  backgroundColor: "var(--react-file-upload-grey)",
 });
 
 const ProgressBar = ({ status, progress }) => {

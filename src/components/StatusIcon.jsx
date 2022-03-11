@@ -14,7 +14,7 @@ const iconSwitch = (status) => {
         <FontAwesomeIcon
           icon={faSyncAlt}
           style={{
-            color: "var(--aiwizo-application-blue)",
+            color: "var(--react-file-upload-blue)",
             animation: "rotate 1s ease-in-out infinite",
           }}
         />
@@ -25,7 +25,7 @@ const iconSwitch = (status) => {
       return (
         <FontAwesomeIcon
           icon={faCheck}
-          style={{ color: "var(--aiwizo-application-green)" }}
+          style={{ color: "var(--react-file-upload-green)" }}
         />
       );
     }
@@ -34,7 +34,7 @@ const iconSwitch = (status) => {
       return (
         <FontAwesomeIcon
           icon={faExclamationCircle}
-          style={{ color: "var(--aiwizo-application-red)" }}
+          style={{ color: "var(--react-file-upload-red)" }}
         />
       );
     }
