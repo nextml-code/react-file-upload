@@ -5,7 +5,6 @@ import {
   SET_FILE_STATUS,
   APPEND_FILES,
   FILE_RESPONSE,
-  SET_HOVERED_ROW,
 } from "./actionTypes";
 import prepareUpdateFileStatus from "./prepareUpdateFileStatus";
 import { map } from "../core/functional";
@@ -75,13 +74,6 @@ const actionSwitch = (state, action) => {
           ...state.fileData,
           { ...action.payload.data, localFileId: action.payload.id },
         ],
-      };
-    }
-
-    case SET_HOVERED_ROW: {
-      return {
-        ...state,
-        hoveredRow: action.payload,
       };
     }
 

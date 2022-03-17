@@ -3,16 +3,15 @@ import FileRow from "./FileRow";
 import { map } from "../../core/functional";
 import objectMatchFilter from "../../core/objectMatch";
 import { useState } from "../../store/ContextProvider";
-import { SET_HOVERED_ROW } from "../../store/actionTypes";
 
 export const FileList = ({ onRowClick }) => {
   const {
-    state: { files, fileStatusArray, fileData, hoveredRow },
+    state: { files, fileStatusArray, fileData },
     dispatch,
   } = useState();
 
   const renderFileRow = (file) => {
-    const [{ progress, status }] = fileStatusArray.filter(
+    const [{ progress, status, message }] = fileStatusArray.filter(
       objectMatchFilter("id", file.id),
     );
 
@@ -20,6 +19,7 @@ export const FileList = ({ onRowClick }) => {
       <FileRow
         progress={progress}
         status={status}
+        message={message}
         onClick={onRowClick}
         key={file.id}
         size={file.size}
@@ -27,8 +27,6 @@ export const FileList = ({ onRowClick }) => {
         id={file.id}
         fileData={fileData}
         dispatch={dispatch}
-        onHover={(id) => dispatch({ type: SET_HOVERED_ROW, payload: id })}
-        isHovered={file.id === hoveredRow}
       />
     );
   };

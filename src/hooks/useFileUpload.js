@@ -46,6 +46,7 @@ export const useFileUpload = (url, onUploadResponse, requestOptions) => {
         payload: {
           id: fileId,
           status: FAIL,
+          message: error.message,
         },
       });
       onUploadResponse(error);

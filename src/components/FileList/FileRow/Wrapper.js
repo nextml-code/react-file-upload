@@ -13,6 +13,9 @@ const Wrapper = styled.div`
     border-bottom-left-radius: var(--react-file-upload-border-radius-primary);
     border-bottom-right-radius: var(--react-file-upload-border-radius-primary);
   }
+  :hover {
+    background-color: var(--react-file-upload-light-background-grey);
+  }
   ${(props) => {
     switch (props.status) {
       case UPLOADING: {
