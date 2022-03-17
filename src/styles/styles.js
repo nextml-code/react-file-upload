@@ -5,6 +5,7 @@ export const wrapperStyle = {
   border: "1px solid var(--react-file-upload-primary-border-blue)",
   borderRadius: "var(--react-file-upload-border-radius-primary)",
   backgroundColor: "#ffffff",
+  width: "100%",
 };
 
 export const buttonStyle = {
