@@ -6,4 +6,3 @@ export const APPEND_FILES = "APPEND_FILES";
 export const FILE_RESPONSE = "FILE_RESPONSE";
 export const SET_IS_DRAGGING = "SET_IS_DRAGGING";
 export const SET_FILES = "SET_FILES";
-export const SET_HOVERED_ROW = "SET_HOVERED_ROW";

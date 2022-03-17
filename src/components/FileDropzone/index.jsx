@@ -6,7 +6,7 @@ import { getEventFiles, getEventTargetFiles, preventDefault } from "./events";
 import { appendFiles } from "../../store/appendFiles";
 import { START_DRAG, STOP_DRAG } from "../../store/actionTypes";
 
-export const FileDropzone = () => {
+export const FileDropzone = ({ id }) => {
   const { state, dispatch } = useState();
 
   const borderRadius =
@@ -35,7 +35,7 @@ export const FileDropzone = () => {
       }}
     >
       <Label
-        htmlFor="file-upload"
+        htmlFor={id}
         styles={{
           ...defaultStyles,
           ...styles,
@@ -49,8 +49,9 @@ export const FileDropzone = () => {
           onChange={(event) =>
             dispatch(appendFiles(getEventTargetFiles(preventDefault(event))))
           }
-          id="file-upload"
+          id={id}
           style={{ display: "none" }}
+          multiple
         />
       </Label>
     </Wrapper>

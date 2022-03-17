@@ -34,8 +34,7 @@ const FileRow = ({
   id,
   onClick,
   fileData,
-  onHover,
-  isHovered,
+  message,
 }) => (
   <Wrapper
     status={status}
@@ -43,14 +42,6 @@ const FileRow = ({
       onClick,
       first(filter(fileData, objectMatchFilter("localFileId", id))),
     )}
-    onMouseEnter={() => onHover(id)}
-    onMouseMove={() => onHover(id)}
-    onMouseLeave={() => onHover(null)}
-    style={{
-      backgroundColor: isHovered
-        ? "var(--react-file-upload-light-background-grey)"
-        : "transparent",
-    }}
   >
     <div
       style={{
@@ -60,14 +51,14 @@ const FileRow = ({
     >
       <StatusIcon status={status} />
       <Name>{name}</Name>
+
+      <div style={{ marginLeft: "auto" }}>
+        <StatusText status={status} message={message} />
+        <RetryButton dispatch={dispatch} fileId={id} status={status} />
+      </div>
       <FileSize>
         {`${getSizeUnit(size).size} ${getSizeUnit(size).short}`}
       </FileSize>
-
-      <div style={{ marginLeft: "auto" }}>
-        <StatusText status={status} />
-        <RetryButton dispatch={dispatch} fileId={id} status={status} />
-      </div>
     </div>
     <ProgressBar progress={progress} status={status} />
   </Wrapper>

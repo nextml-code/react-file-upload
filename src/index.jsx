@@ -8,6 +8,7 @@ import { useFileUpload } from "./hooks/useFileUpload";
 import { FileDropzone } from "./components/FileDropzone";
 import { FileList } from "./components/FileList";
 import "./styles/index.css";
+import { validateId } from "./validation/propsValidation";
 
 const validateRequestOptions = (requestOptions) => {
   if (isDefined(requestOptions.body) && isDefined(requestOptions.form)) {
@@ -32,7 +33,14 @@ const validateRequestOptions = (requestOptions) => {
   }
 };
 
-const Root = ({ url, onUploadResponse, onRowClick, requestOptions = {} }) => {
+const Root = ({
+  url,
+  onUploadResponse,
+  onRowClick,
+  requestOptions = {},
+  id,
+}) => {
+  validateId(id);
   validateRequestOptions(requestOptions);
   useFileUploadBatchControl();
   useFileUpload(url, onUploadResponse, requestOptions);
