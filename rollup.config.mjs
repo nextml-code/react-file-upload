@@ -2,14 +2,9 @@ import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
 import postcss from "rollup-plugin-postcss";
+import json from "@rollup/plugin-json";
 
-const peerDependencies = [
-  "react",
-  "react-dom",
-  "styled-components",
-  /@fortawesome\//,
-  /@babel\/runtime/,
-];
+const peerDependencies = ["react", "react-dom"];
 
 const extensions = [".js", ".jsx"];
 
@@ -27,6 +22,7 @@ export default {
   },
 
   plugins: [
+    json(),
     postcss({
       plugins: [],
     }),
@@ -48,5 +44,5 @@ export default {
       include: ["node_modules/**"],
     }),
   ],
-  external: [...peerDependencies],
+  external: peerDependencies,
 };
