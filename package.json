@@ -1,6 +1,6 @@
 {
   "name": "@nextml-code/react-file-upload",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "main": "index.js",
   "engines": {
     "node": ">=18.4.0"
