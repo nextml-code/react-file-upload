@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
-import { UPLOADING, FAIL, PENDING } from "../../../core/constants";
+
+import { UPLOADING, FAIL, PENDING } from "../../../core/constants.js";
 
 const Wrapper = styled.div`
   padding: var(--react-file-upload-spacing-small)

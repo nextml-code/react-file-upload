@@ -1,5 +1,5 @@
 import React from "react";
-import { UPLOADING, DONE, FAIL } from "../core/constants";
+import { UPLOADING, DONE, FAIL } from "../core/constants.js";
 import {
   faExclamationCircle,
   faCheck,

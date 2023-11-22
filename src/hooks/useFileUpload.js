@@ -1,11 +1,12 @@
 // Make an upload request one after one
-import upload from "../core/upload";
 import { useEffect } from "react";
-import { SET_FILE_STATUS, FILE_RESPONSE } from "../store/actionTypes";
-import { divide } from "../core/functional";
-import getFilesWithStatus from "../core/getFilesWithStatus";
-import { UPLOADING, NEXT, FAIL } from "../core/constants";
-import { useState } from "../store/ContextProvider";
+
+import upload from "../core/upload.js";
+import { SET_FILE_STATUS, FILE_RESPONSE } from "../store/actionTypes.js";
+import { divide } from "../core/functional.js";
+import getFilesWithStatus from "../core/getFilesWithStatus.js";
+import { UPLOADING, NEXT, FAIL } from "../core/constants.js";
+import { useState } from "../store/ContextProvider.jsx";
 
 // Start upload all files with the status 'next'
 export const useFileUpload = (url, onUploadResponse, requestOptions) => {

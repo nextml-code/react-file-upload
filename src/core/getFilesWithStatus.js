@@ -1,4 +1,4 @@
-import objectMatchFilter from "./objectMatch";
+import objectMatchFilter from "./objectMatch.js";
 
 const getFilesWithStatus = (files, fileStatusArray, status) => {
   const fileIds = fileStatusArray

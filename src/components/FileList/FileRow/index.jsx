@@ -1,14 +1,15 @@
 import React from "react";
-import getSizeUnit from "../../../core/getSizeUnit";
-import ProgressBar from "../../ProgressBar";
-import RetryButton from "../../RetryButton";
-import StatusIcon from "../../StatusIcon";
-import { triggerOnEvent } from "../../../core/events";
-import objectMatchFilter from "../../../core/objectMatch";
-import { filter, first } from "../../../core/functional";
 import styled from "styled-components";
-import Wrapper from "./Wrapper";
-import StatusText from "./StatusText";
+
+import getSizeUnit from "../../../core/getSizeUnit.js";
+import ProgressBar from "../../ProgressBar/ProgressBar.jsx";
+import RetryButton from "../../RetryButton.jsx";
+import StatusIcon from "../../StatusIcon.jsx";
+import { triggerOnEvent } from "../../../core/events.js";
+import objectMatchFilter from "../../../core/objectMatch.js";
+import { filter, first } from "../../../core/functional.js";
+import Wrapper from "./Wrapper.js";
+import StatusText from "./StatusText.jsx";
 
 const Name = styled.span`
   white-space: nowrap;

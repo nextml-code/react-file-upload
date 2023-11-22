@@ -1,6 +1,6 @@
 import axios from "axios";
-import fileToBase64 from "./fileToBase64";
-import { isDefined } from "./isDefined";
+import fileToBase64 from "./fileToBase64.js";
+import { isDefined } from "./isDefined.js";
 
 const getData = (requestOptions, file) =>
   new Promise((resolve, reject) => {

@@ -1,10 +1,14 @@
 import React, { useId } from "react";
-import { useState } from "../../store/ContextProvider";
-import { Label } from "./Label";
-import { Wrapper, defaultStyles } from "./Wrapper";
-import { getEventFiles, getEventTargetFiles, preventDefault } from "./events";
-import { appendFiles } from "../../store/appendFiles";
-import { START_DRAG, STOP_DRAG } from "../../store/actionTypes";
+import { useState } from "../../store/ContextProvider.jsx";
+import { Label } from "./Label.js";
+import { Wrapper, defaultStyles } from "./Wrapper.js";
+import {
+  getEventFiles,
+  getEventTargetFiles,
+  preventDefault,
+} from "./events.js";
+import { appendFiles } from "../../store/appendFiles.js";
+import { START_DRAG, STOP_DRAG } from "../../store/actionTypes.js";
 
 export const FileDropzone = () => {
   const { state, dispatch } = useState();

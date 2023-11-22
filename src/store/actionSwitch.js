@@ -6,9 +6,10 @@ import {
   APPEND_FILES,
   FILE_RESPONSE,
 } from "./actionTypes";
-import prepareUpdateFileStatus from "./prepareUpdateFileStatus";
-import { map } from "../core/functional";
-import { PENDING, NEXT, DONE } from "../core/constants";
+
+import prepareUpdateFileStatus from "./prepareUpdateFileStatus.js";
+import { map } from "../core/functional.js";
+import { PENDING, NEXT, DONE } from "../core/constants.js";
 
 const actionSwitch = (state, action) => {
   const updateFileStatus = prepareUpdateFileStatus(state.fileStatusArray);
