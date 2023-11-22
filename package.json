@@ -19,7 +19,6 @@
     "format": "prettier \"**/*.{js,jsx,css,md}\" --write"
   },
   "dependencies": {
-    "@babel/runtime": "^7.23.4",
     "@codewell/state-logger": "^1.1.0",
     "@fortawesome/fontawesome-svg-core": "^6.4.2",
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
@@ -29,6 +28,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
+    "@babel/runtime": "^7.23.4",
     "@babel/plugin-transform-runtime": "^7.23.4",
     "@babel/preset-env": "^7.23.3",
     "@babel/preset-react": "^7.23.3",
