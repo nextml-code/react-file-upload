@@ -1,4 +1,4 @@
-import { map } from "../core/functional";
+import { map } from "../core/functional.js";
 
 const prepareUpdateFileStatus = (files) => (file) =>
   map((f) => {

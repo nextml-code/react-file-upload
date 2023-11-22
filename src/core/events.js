@@ -1,4 +1,4 @@
-import { START_DRAG, STOP_DRAG } from "../store/actionTypes";
+import { START_DRAG, STOP_DRAG } from "../store/actionTypes.js";
 
 export const preventEventDefault = (event) => event.preventDefault();
 

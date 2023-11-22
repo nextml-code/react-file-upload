@@ -1,8 +1,7 @@
-import actionSwitch from "./actionSwitch";
-import stateLogger from "@codewell/state-logger";
+import actionSwitch from "./actionSwitch.js";
 
-export default ({ loglevel }) => (state, action) => {
+export default () => (state, action) => {
   const nextState = actionSwitch(state, action);
-  if (loglevel === "DEBUG") stateLogger(state, action, nextState);
+
   return nextState;
 };

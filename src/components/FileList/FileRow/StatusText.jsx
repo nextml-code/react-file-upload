@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import { FAIL, UPLOADING } from "../../../core/constants";
+
+import { FAIL, UPLOADING } from "../../../core/constants.js";
 
 const getStatusText = (status, message) => {
   switch (status) {

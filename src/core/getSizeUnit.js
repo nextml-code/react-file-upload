@@ -1,4 +1,4 @@
-import { divide } from "./functional";
+import { divide } from "./functional.js";
 
 const sizeStrings = [
   { short: "B", long: "byte" },

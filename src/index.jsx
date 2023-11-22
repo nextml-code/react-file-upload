@@ -1,14 +1,16 @@
 import React from "react";
-import { ContextProvider } from "./store/ContextProvider";
-import { isDefined } from "./core/isDefined";
-import { wrapperStyle } from "./styles/styles";
-import { initialState } from "./store/initialState";
-import { useFileUploadBatchControl } from "./hooks/useFileUploadBatchControl";
-import { useFileUpload } from "./hooks/useFileUpload";
-import FileDropzone from "./components/FileDropzone/FileDropzone.jsx";
-import { FileList } from "./components/FileList";
+
+import { ContextProvider } from "./store/ContextProvider.jsx";
+import { isDefined } from "./core/isDefined.js";
+import { wrapperStyle } from "./styles/styles.js";
+import { initialState } from "./store/initialState.js";
+import { useFileUploadBatchControl } from "./hooks/useFileUploadBatchControl.js";
+import { useFileUpload } from "./hooks/useFileUpload.js";
+import { FileDropzone } from "./components/FileDropzone/FileDropzone.jsx";
+import { FileList } from "./components/FileList/index.jsx";
+import { validateId } from "./validation/propsValidation.js";
+
 import "./styles/index.css";
-import { validateId } from "./validation/propsValidation";
 
 const validateRequestOptions = (requestOptions) => {
   if (isDefined(requestOptions.body) && isDefined(requestOptions.form)) {

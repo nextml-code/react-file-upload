@@ -1,8 +1,9 @@
 import React from "react";
-import FileRow from "./FileRow";
-import { map } from "../../core/functional";
-import objectMatchFilter from "../../core/objectMatch";
-import { useState } from "../../store/ContextProvider";
+
+import FileRow from "./FileRow/index.jsx";
+import { map } from "../../core/functional.js";
+import objectMatchFilter from "../../core/objectMatch.js";
+import { useState } from "../../store/ContextProvider.jsx";
 
 export const FileList = ({ onRowClick }) => {
   const {

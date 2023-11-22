@@ -1,4 +1,4 @@
-import { identity, map } from "../../core/functional";
+import { identity, map } from "../../core/functional.js";
 
 export const getEventFiles = ({ dataTransfer }) => {
   if (dataTransfer.items) {

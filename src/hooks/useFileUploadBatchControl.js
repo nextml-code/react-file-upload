@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import { SET_NEXT_UPLOAD } from "../store/actionTypes";
-import objectMatchFilter from "../core/objectMatch";
-import { PENDING, UPLOADING, NEXT } from "../core/constants";
-import { useState } from "../store/ContextProvider";
+
+import { SET_NEXT_UPLOAD } from "../store/actionTypes.js";
+import objectMatchFilter from "../core/objectMatch.js";
+import { PENDING, UPLOADING, NEXT } from "../core/constants.js";
+import { useState } from "../store/ContextProvider.jsx";
 
 // Controls that the number of files uploading
 // are not more than the batch size

@@ -1,6 +1,6 @@
 import React from "react";
-import { FAIL, PENDING } from "../core/constants";
-import { SET_FILE_STATUS } from "../store/actionTypes";
+import { FAIL, PENDING } from "../core/constants.js";
+import { SET_FILE_STATUS } from "../store/actionTypes.js";
 
 const retry = (dispatch, fileId) => (_) => {
   dispatch({
