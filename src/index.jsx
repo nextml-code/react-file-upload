@@ -5,7 +5,7 @@ import { wrapperStyle } from "./styles/styles";
 import { initialState } from "./store/initialState";
 import { useFileUploadBatchControl } from "./hooks/useFileUploadBatchControl";
 import { useFileUpload } from "./hooks/useFileUpload";
-import { FileDropzone } from "./components/FileDropzone";
+import FileDropzone from "./components/FileDropzone/FileDropzone.jsx";
 import { FileList } from "./components/FileList";
 import "./styles/index.css";
 import { validateId } from "./validation/propsValidation";
