@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useId } from "react";
 import { useState } from "../../store/ContextProvider";
 import { Label } from "./Label";
 import { Wrapper, defaultStyles } from "./Wrapper";
@@ -6,8 +6,9 @@ import { getEventFiles, getEventTargetFiles, preventDefault } from "./events";
 import { appendFiles } from "../../store/appendFiles";
 import { START_DRAG, STOP_DRAG } from "../../store/actionTypes";
 
-export const FileDropzone = ({ id }) => {
+export const FileDropzone = () => {
   const { state, dispatch } = useState();
+  const id = useId();
 
   const borderRadius =
     "calc(var(--react-file-upload-border-radius-primary) - 1px)";

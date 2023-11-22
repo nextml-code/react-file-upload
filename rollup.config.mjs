@@ -9,7 +9,7 @@ const peerDependencies = ["react", "react-dom"];
 const extensions = [".js", ".jsx"];
 
 export default {
-  input: "src/index.jsx",
+  input: "src/library.js",
 
   output: {
     file: "./lib/index.js",

@@ -1,5 +1,5 @@
 import React from "react";
-import { PENDING, UPLOADING } from "../core/constants";
+import { PENDING, UPLOADING } from "../../core/constants";
 
 const progressbarStyle = {
   width: "100%",
