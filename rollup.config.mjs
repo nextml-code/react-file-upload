@@ -1,8 +1,9 @@
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import babel from "@rollup/plugin-babel";
-import postcss from "rollup-plugin-postcss";
 import json from "@rollup/plugin-json";
+import replace from "@rollup/plugin-replace";
+import postcss from "rollup-plugin-postcss";
 
 const peerDependencies = ["react", "react-dom"];
 
@@ -25,6 +26,10 @@ export default {
     json(),
     postcss({
       plugins: [],
+    }),
+    replace({
+      preventAssignment: true,
+      "process.env.NODE_ENV": JSON.stringify("production"),
     }),
     nodeResolve({
       customResolveOptions: {
